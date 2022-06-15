@@ -5,7 +5,7 @@ namespace TestTask.Data
     public class OilInfo
     {
         public string RunName { get; set; }
-        public string? Itemtag { get; set; }
+        public string? ItemTag { get; set; }
         public int NPD { get; set; }
         public double? RunLength { get; set; }
         public double? LineWeight { get; set; }

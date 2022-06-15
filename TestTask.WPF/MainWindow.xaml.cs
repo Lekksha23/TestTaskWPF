@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace TestTask.View
+namespace TestTask.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
