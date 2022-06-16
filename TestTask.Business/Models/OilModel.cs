@@ -1,8 +1,6 @@
-﻿
-
-namespace TestTask.Data
+﻿namespace TestTask.Business
 {
-    public class OilInfo
+    public class OilModel
     {
         public string RunName { get; set; }
         public string? ItemTag { get; set; }

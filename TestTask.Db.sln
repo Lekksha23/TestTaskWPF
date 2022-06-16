@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTask.Data", "TestTask.D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTask.Business", "TestTask.Business\TestTask.Business.csproj", "{924F5EE2-9A54-4B82-904D-0B88B7563E16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestTask.WPF", "TestTask.WPF\TestTask.WPF.csproj", "{1B631439-0CDD-4B56-AC0C-D4A928AAC55C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestTask.UI", "TestTask.WPF\TestTask.UI.csproj", "{1B631439-0CDD-4B56-AC0C-D4A928AAC55C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

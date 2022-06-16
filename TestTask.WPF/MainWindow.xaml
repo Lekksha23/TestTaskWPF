@@ -2,10 +2,47 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:i="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Oil Information" Height="700" Width="900">
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="80*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <TextBox Margin="20, 5 ,20 ,5"/>
+            <TextBox Margin="20, 5 ,20 ,5"/>
+            <TextBox Margin="20, 5 ,20 ,5"/>
+            <TextBox Margin="20, 5 ,20 ,5"/>
+            <Button x:Name="ConnectButton" Margin="15, 5 ,15 ,5" Command="{Binding OilViewModel.GetOilInfo}" Content="Подключиться" Grid.Column="0"  />
+        </StackPanel>
+
+        <DataGrid x:Name="OilDataGrid" AutoGenerateColumns="False" Background="#FFE0DFDF" CanUserAddRows="True" Grid.Column="1"
+                  CanUserDeleteRows="True" Width="auto" ItemsSource="{Binding OilViewModel.OilDataGrid}">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Aquamarine"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
+                    <Setter Property="BorderThickness" Value="0, 0, 1, 2"/>
+                    <Setter Property="BorderBrush" Value="black"/>
+                </Style>
+            </DataGrid.Resources>
+            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="RunName" Width="*" Binding="{Binding RunName}"/>
+                <DataGridTextColumn Header="ItemTag" Width="*" Binding="{Binding ItemTag}"/>
+                <DataGridTextColumn Header="NPD" Width="*" Binding="{Binding NPD}"/>
+                <DataGridTextColumn Header="RunLength" Width="*" Binding="{Binding RunLength}"/>
+                <DataGridTextColumn Header="LineWeight" Width="*" Binding="{Binding LineWeight}"/>
+                <DataGridTextColumn Header="RunDiam" Width="*" Binding="{Binding RunDiam}"/>
+                <DataGridTextColumn Header="PressureRating" Width="*" Binding="{Binding PressureRating}"/>
+                <DataGridTextColumn Header="FluidCode" Width="*" Binding="{Binding FluidCode}"/>
+                <DataGridTextColumn Header="Temp" Width="*" Binding="{Binding Temp}"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>

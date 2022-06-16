@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using TestTask.UI.ViewModels;
 
 namespace TestTask.WPF
 {
@@ -10,6 +11,8 @@ namespace TestTask.WPF
         public MainWindow()
         {
             InitializeComponent();
+            var vm = new MainViewModel();
+            DataContext = vm;
         }
     }
 }
