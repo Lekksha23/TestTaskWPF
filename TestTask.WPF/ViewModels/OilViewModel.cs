@@ -7,6 +7,7 @@ namespace TestTask.UI.ViewModels
 {
     public class OilViewModel : BaseViewModel
     {
+        private IOilService _oilService;
         public string RunName { get; set; }
         public string? ItemTag { get; set; }
         public int NPD { get; set; }
@@ -17,18 +18,15 @@ namespace TestTask.UI.ViewModels
         public string? FluidCode { get; set; }
         public double? Temp { get; set; }
 
-        private IOilService _oilService;
         public ICommand GetOilInfo { get; set; }
-        public ICommand GetConnectionStringCommand { get; set; }
+        public ICommand ConnectToServerCommand { get; set; }
 
         public ObservableCollection<OilModel> OilDataGrid { get; set; }
 
         public OilViewModel(MainViewModel mainViewModel)
         {
-            GetConnectionStringCommand = new ConnectionStringBuildCommand(mainViewModel);
-            _oilService = new OilService();
             OilDataGrid = new ObservableCollection<OilModel>();
-            GetOilInfo = new GetOilInfoCommand(this, _oilService);
+            ConnectToServerCommand = new ConnectToServerCommand(this, mainViewModel);
         }
     }
 }

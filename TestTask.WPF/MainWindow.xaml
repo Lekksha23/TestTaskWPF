@@ -4,23 +4,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:i="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic"
         mc:Ignorable="d"
-        Title="Oil Information" Height="700" Width="900">
+        Title="Oil Information" MinHeight="800" MinWidth="1200">
 
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="20*"/>
-            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="75*"/>
         </Grid.ColumnDefinitions>
-
+        
         <StackPanel>
-            <TextBox Margin="20, 5 ,20 ,5"/>
-            <TextBox Margin="20, 5 ,20 ,5"/>
-            <TextBox Margin="20, 5 ,20 ,5"/>
-            <TextBox Margin="20, 5 ,20 ,5"/>
-            <Button x:Name="ConnectButton" Margin="15, 5 ,15 ,5" Command="{Binding OilViewModel.GetOilInfo}" Content="Подключиться" Grid.Column="0"  />
+            <TextBlock Margin="5, 20, 0, 5" HorizontalAlignment="Right" Text="Server:"/>
+            <TextBlock Margin="5, 5, 0, 5" HorizontalAlignment="Right" Text="Database:"/>
+            <TextBlock Margin="5, 7, 0, 5" HorizontalAlignment="Right" Text="User:"/>
+            <TextBlock Margin="5, 6, 0, 5" HorizontalAlignment="Right" Text="Password:"/>
         </StackPanel>
 
-        <DataGrid x:Name="OilDataGrid" AutoGenerateColumns="False" Background="#FFE0DFDF" CanUserAddRows="True" Grid.Column="1"
+        <StackPanel Grid.Column="1">
+            <TextBox Margin="10, 20, 20, 5" Text="{Binding MainViewModel.Server}"/>
+            <TextBox Margin="10, 5, 20, 5" Text="{Binding MainViewModel.Database}"/>
+            <TextBox Margin="10, 5, 20, 5" Text="{Binding MainViewModel.UserName}"/>
+            <TextBox Margin="10, 5, 20, 5" Text="{Binding MainViewModel.Password}"/>
+            <Button x:Name="ConnectButton" Margin="45, 5 ,45 ,5" Command="{Binding OilViewModel.ConnectToServerCommand}" Content="Connect"/>
+        </StackPanel>
+
+        <DataGrid x:Name="OilDataGrid" AutoGenerateColumns="False" Background="#FFE0DFDF" CanUserAddRows="True" Grid.Column="2"
                   CanUserDeleteRows="True" Width="auto" ItemsSource="{Binding OilViewModel.OilDataGrid}">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
