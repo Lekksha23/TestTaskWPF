@@ -1,0 +1,57 @@
+﻿<Window x:Class="TestTask.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:i="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic"
+        mc:Ignorable="d"
+        Title="Oil Information" MinHeight="800" MinWidth="1200">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="75*"/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel>
+            <TextBlock Margin="5, 20, 0, 5" HorizontalAlignment="Right" Text="Server:"/>
+            <TextBlock Margin="5, 5, 0, 5" HorizontalAlignment="Right" Text="Database:"/>
+            <TextBlock Margin="5, 7, 0, 5" HorizontalAlignment="Right" Text="User:"/>
+            <TextBlock Margin="5, 6, 0, 5" HorizontalAlignment="Right" Text="Password:"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <TextBox Margin="10, 20, 20, 5" Text="{Binding OilViewModel.Server}"/>
+            <TextBox Margin="10, 5, 20, 5" Text="{Binding OilViewModel.Database}"/>
+            <TextBox Margin="10, 5, 20, 5" Text="{Binding OilViewModel.UserName}"/>
+            <TextBox Margin="10, 5, 20, 5" Text="{Binding OilViewModel.Password}"/>
+            <Button x:Name="ConnectButton" Margin="45, 5 ,45 ,5" Command="{Binding OilViewModel.ConnectToServerCommand}" Content="Connect" IsEnabled="{Binding OilViewModel.IsConnectButtonEnabled}"/>
+            <Button x:Name="ExportButton" Margin="45, 550,45 ,5" Command="{Binding OilViewModel.ExportToCsvFileCommand}" Content="Export data from table"/>
+        </StackPanel>
+
+        <DataGrid x:Name="OilDataGrid" AutoGenerateColumns="False" Background="#FFE0DFDF" CanUserAddRows="True" Grid.Column="2"
+                  CanUserDeleteRows="True" Width="auto" ItemsSource="{Binding OilViewModel.OilDataGrid}">
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Aquamarine"/>
+                    <Setter Property="FontWeight" Value="Medium"/>
+                    <Setter Property="BorderThickness" Value="0, 0, 1, 2"/>
+                    <Setter Property="BorderBrush" Value="black"/>
+                </Style>
+            </DataGrid.Resources>
+            
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="RunName" Width="*" Binding="{Binding RunName}"/>
+                <DataGridTextColumn Header="ItemTag" Width="*" Binding="{Binding ItemTag}"/>
+                <DataGridTextColumn Header="NPD" Width="*" Binding="{Binding NPD}"/>
+                <DataGridTextColumn Header="RunLength" Width="*" Binding="{Binding RunLength}"/>
+                <DataGridTextColumn Header="LineWeight" Width="*" Binding="{Binding LineWeight}"/>
+                <DataGridTextColumn Header="RunDiam" Width="*" Binding="{Binding RunDiam}"/>
+                <DataGridTextColumn Header="PressureRating" Width="*" Binding="{Binding PressureRating}"/>
+                <DataGridTextColumn Header="FluidCode" Width="*" Binding="{Binding FluidCode}"/>
+                <DataGridTextColumn Header="Temp" Width="*" Binding="{Binding Temp}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

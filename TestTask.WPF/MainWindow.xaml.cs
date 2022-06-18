@@ -1,6 +1,7 @@
 ﻿using System.Windows;
+using TestTask.UI.ViewModels;
 
-namespace TestTask.View
+namespace TestTask.WPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -10,6 +11,8 @@ namespace TestTask.View
         public MainWindow()
         {
             InitializeComponent();
+            var vm = new MainViewModel();
+            DataContext = vm;
         }
     }
 }
