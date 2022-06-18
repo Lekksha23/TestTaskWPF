@@ -1,7 +1,8 @@
 ﻿using System.Data.SqlClient;
 using TestTask.Data;
+using TestTask.Data.Interfaces;
 
-namespace TestTask.Business
+namespace TestTask.Business.Services
 {
     public class OilService : IOilService
     {

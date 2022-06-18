@@ -21,11 +21,12 @@
         </StackPanel>
 
         <StackPanel Grid.Column="1">
-            <TextBox Margin="10, 20, 20, 5" Text="{Binding MainViewModel.Server}"/>
-            <TextBox Margin="10, 5, 20, 5" Text="{Binding MainViewModel.Database}"/>
-            <TextBox Margin="10, 5, 20, 5" Text="{Binding MainViewModel.UserName}"/>
-            <TextBox Margin="10, 5, 20, 5" Text="{Binding MainViewModel.Password}"/>
-            <Button x:Name="ConnectButton" Margin="45, 5 ,45 ,5" Command="{Binding OilViewModel.ConnectToServerCommand}" Content="Connect"/>
+            <TextBox Margin="10, 20, 20, 5" Text="{Binding OilViewModel.Server}"/>
+            <TextBox Margin="10, 5, 20, 5" Text="{Binding OilViewModel.Database}"/>
+            <TextBox Margin="10, 5, 20, 5" Text="{Binding OilViewModel.UserName}"/>
+            <TextBox Margin="10, 5, 20, 5" Text="{Binding OilViewModel.Password}"/>
+            <Button x:Name="ConnectButton" Margin="45, 5 ,45 ,5" Command="{Binding OilViewModel.ConnectToServerCommand}" Content="Connect" IsEnabled="{Binding OilViewModel.IsConnectButtonEnabled}"/>
+            <Button x:Name="ExportButton" Margin="45, 550,45 ,5" Command="{Binding OilViewModel.ExportToCsvFileCommand}" Content="Export data from table"/>
         </StackPanel>
 
         <DataGrid x:Name="OilDataGrid" AutoGenerateColumns="False" Background="#FFE0DFDF" CanUserAddRows="True" Grid.Column="2"

@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using System.Data;
 using System.Data.SqlClient;
+using TestTask.Data.Interfaces;
 
 namespace TestTask.Data
 {

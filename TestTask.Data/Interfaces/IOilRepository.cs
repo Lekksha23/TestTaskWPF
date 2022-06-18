@@ -1,5 +1,5 @@
 ﻿
-namespace TestTask.Data
+namespace TestTask.Data.Interfaces
 {
     public interface IOilRepository
     {
